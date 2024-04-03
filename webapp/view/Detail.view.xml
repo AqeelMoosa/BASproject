@@ -1,0 +1,166 @@
+<mvc:View xmlns:smartForm="sap.ui.comp.smartform"
+    controllerName="successfactors.masterdetail.controller.Detail"
+    xmlns:m="sap.m"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:l="sap.ui.layout.form"
+    xmlns="sap.uxap"
+    xmlns:f="sap.f"
+    xmlns:grid="sap.ui.layout.cssgrid"
+    xmlns:smartField="sap.ui.comp.smartfield">
+
+<!--     
+    <semantic:SemanticPage
+        id="detailPage"
+        busy="{detailView>/busy}"
+        busyIndicatorDelay="{detailView>/delay}">
+        <semantic:titleHeading>
+            <Title class="head"
+                text="{userNav/displayName} ({userNav/username})"
+                level="H2"/>
+        </semantic:titleHeading>
+        <semantic:headerContent>
+            <ObjectAttribute text=" last modified on {userNav/lastModified} by {lastModifiedBy}" />
+
+            <Button icon="sap-icon://edit" text="Save Update" press="onEdit"/>
+
+        </semantic:headerContent> -->
+
+
+<ObjectPageLayout id="ObjectPageLayout" upperCaseAnchorBar="false">
+		<headerTitle>
+			<ObjectPageHeader objectTitle="{userNav/displayName} ({userNav/username})">
+			</ObjectPageHeader>
+		</headerTitle>
+
+		<headerContent>
+			<m:ObjectAttribute title="" text="last modified on {userNav/lastModified} by {lastModifiedBy}"/>
+            <m:Button icon="sap-icon://edit" text="Save Update" press="newEdit"></m:Button>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection titleUppercase="false" title="">
+				<subSections>
+					<ObjectPageSubSection title="" titleUppercase="false">
+						<blocks>
+							
+
+                            <smartForm:SmartForm 
+        
+                                  id="smartformSemanticGroupElement"
+                                    editTogglable="true" title="Job Information"
+                                         editToggled="handleEditToggled">
+
+
+                <smartForm:Group id="sf1">
+            
+                <smartForm:SemanticGroupElement id="JC" label="Job Classification">
+                    <smartField:SmartField id="JobCode" value="{userNav/jobCode}"/>
+                </smartForm:SemanticGroupElement>
+
+                 <smartForm:SemanticGroupElement id="JT" label="Job Title">
+                    <smartField:SmartField id="JobTitle" value="{jobTitle}"/>
+                </smartForm:SemanticGroupElement>
+
+                <smartForm:SemanticGroupElement id="PG" label="Pay Grade">
+                    <smartField:SmartField id="PayGrade" value="{payGrade}"/>
+                </smartForm:SemanticGroupElement>
+
+                 <smartForm:SemanticGroupElement id="RT" label="Regular or Temporary">
+                    <smartField:SmartField id="RegOrTemp" value="{regularTemporary}"/>
+                </smartForm:SemanticGroupElement>
+
+                 <smartForm:SemanticGroupElement id="WD" label="Working days per week">
+                    <smartField:SmartField id="WorkingDays" value="{workingDaysPerWeek}"/>
+                </smartForm:SemanticGroupElement>
+
+                 <smartForm:SemanticGroupElement id="STH" label="Standard Weekly Hours">
+                    <smartField:SmartField id="Hours" value="{standardHours}"/>
+                </smartForm:SemanticGroupElement>
+
+                 <smartForm:SemanticGroupElement id="fte" label="FTE">
+                    <smartField:SmartField id="FTE" value="{fte}"/>
+                </smartForm:SemanticGroupElement>
+
+                 <smartForm:SemanticGroupElement id="EC" label="Employee Class">
+                    <smartField:SmartField id="Employeeclass" value="{userNav/employeeClass}"/>
+                </smartForm:SemanticGroupElement>                          
+
+            </smartForm:Group>
+        </smartForm:SmartForm>
+						</blocks>
+					</ObjectPageSubSection>
+					<ObjectPageSubSection title="" titleUppercase="false">
+						<blocks>
+							
+                                <smartForm:SmartForm
+         
+         id="smartformSemanticGroupElement2"
+        editTogglable="true" title="User Information"
+        editToggled="handleEditToggled">
+
+
+            <smartForm:Group id="sf2">
+            
+                <smartForm:SemanticGroupElement id="DN" label="Name">
+                    <smartField:SmartField id="Displayname" value="{userNav/displayName}"/>
+                </smartForm:SemanticGroupElement>
+
+                 <smartForm:SemanticGroupElement id="UI" label="User ID">
+                    <smartField:SmartField id="userId" value="{userId}"/>
+                </smartForm:SemanticGroupElement>
+
+                <smartForm:SemanticGroupElement id="G" label="Gender">
+                    <smartField:SmartField id="Gender" value="{userNav/gender}"/>
+                </smartForm:SemanticGroupElement>
+
+                 <smartForm:SemanticGroupElement id="E" label="Email">
+                    <smartField:SmartField id="Email" value="{userNav/email}"/>
+                </smartForm:SemanticGroupElement>
+
+                 <smartForm:SemanticGroupElement id="C" label="City">
+                    <smartField:SmartField id="City" value="{userNav/city}"/>
+                </smartForm:SemanticGroupElement>
+
+            </smartForm:Group>    
+        </smartForm:SmartForm>
+
+						</blocks>
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+            	</sections>
+
+	</ObjectPageLayout>
+
+
+
+
+
+
+       
+        
+<!-- 
+        <semantic:closeAction>
+            <semantic:CloseAction
+                    id="closeColumn"
+                    press=".onCloseDetailPress"/>
+        </semantic:closeAction>
+
+        <semantic:fullScreenAction>
+            <semantic:FullScreenAction
+                    id="enterFullScreen"
+                    visible="{= !${device>/system/phone} &amp;&amp; !${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+                    press=".toggleFullScreen"/>
+        </semantic:fullScreenAction>
+        <semantic:exitFullScreenAction>
+            <semantic:ExitFullScreenAction
+                    id="exitFullScreen"
+                    visible="{= !${device>/system/phone} &amp;&amp; ${appView>/actionButtonsInfo/midColumn/fullScreen}}"
+                    press=".toggleFullScreen"/>
+        </semantic:exitFullScreenAction>
+
+    </semantic:SemanticPage> -->
+     
+</mvc:View>
